@@ -47,8 +47,11 @@ module.exports.deleteUser = async (req, res) => {
 }
 // Get single user info
 module.exports.userInfo = async (req, res) => {
+    const username = req.query.username;
+    const userId = req.query.userId;
         try {
-            const user = await User.findById(req.params.id);
+            const user = userId ? await User.findById(userId) : 
+            await User.findOne({username: username}) ;
             const {password, updatedAt, ...other} = user._doc
             res.status(200).json(other);
         } catch (err) {

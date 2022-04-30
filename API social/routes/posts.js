@@ -12,5 +12,7 @@ router.put('/:id/like', postContoller.like )
 // get a post
 router.get('/:id', postContoller.getPostInfo )
 // get timeline(all posts of the followings users) the posts
-router.get('/timeline/all', postContoller.timeline )
+router.get('/timeline/:userId', postContoller.timeline )
+// get user post
+router.get('/profile/:username', postContoller.myposts )
 module.exports= router;
