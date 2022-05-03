@@ -16,8 +16,8 @@ export default function Login() {
             { email: email.current.value, password: password.current.value },
             dispatch
         );
-        console.log(user);
-    }
+    };
+    console.log(user);
     return (
         <div className='login'>
             <div className='loginWrapper'>
@@ -32,6 +32,7 @@ export default function Login() {
                         <button className='loginButton' type='submit' disabled={isFetching}>
                             {isFetching ? <CircularProgress style={{ color: "white" }} /> : "Connexion"}
                         </button>
+                        {error && <span style={{ textAlign: 'center', color: "red", fontWeight: '700' }}>{error.response.data}</span>}
                         <span className='loginForgot'>Mot de passe oublié ?</span>
                         <button className='loginRegisterButton'>
                             {isFetching ? <CircularProgress style={{ color: "white" }} /> : "Créer un nouveau compte"}

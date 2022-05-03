@@ -27,7 +27,7 @@ export default function Register() {
 
             setIsPending(true)
             try {
-                const res = await axios.post('/auth/register', user)
+                await axios.post('/auth/register', user)
                 navigate('/login')
                 setIsPending(false)
             } catch (err) {
